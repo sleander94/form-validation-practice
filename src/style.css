@@ -1,3 +1,14 @@
+form {
+  display: grid;
+  width: 200px;
+  gap: 8px;
+  padding: 16px;
+  background-color: gray;
+  border: 1px solid black;
+  border-radius: 6px;
+  justify-items: center;
+}
+
 form input {
   border: 1px solid black;
 }
