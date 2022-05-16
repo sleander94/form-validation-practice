@@ -62,8 +62,7 @@ password.type = 'password';
 password.name = 'password';
 password.minLength = 8;
 password.maxLength = 16;
-password.pattern =
-  '^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[*.!@$%^&(){}[]:;<>,.?/~_+-=|]).{8,16}$';
+password.pattern = '^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,16}$';
 password.addEventListener('input', () => {
   confirmPass.setCustomValidity('');
   password.setCustomValidity('');
@@ -82,7 +81,7 @@ password.addEventListener('invalid', () => {
     password.setCustomValidity('Passwords must match');
   } else {
     password.setCustomValidity(
-      'Password must be 8-16 characters. Must contain at least one of each: lowercase letter, uppercase letter, number, special character.'
+      'Password must be 8-16 characters. Must contain only letters and numbers. At least one of each: lowercase letter, uppercase letter, and number'
     );
   }
 });
@@ -114,14 +113,8 @@ form.appendChild(confirmPass);
 const submit = document.createElement('button');
 submit.type = 'submit';
 submit.innerText = 'Submit';
-submit.addEventListener('click', () => {
-  if (password.checkValidity() && confirmPass.checkValidity()) {
-    console.log('high five');
-  } else {
-    console.log('fail');
-  }
-  console.log(password.checkValidity());
-  console.log(confirmPass.checkValidity());
+submit.addEventListener('submit', () => {
+  alert('High Five!');
 });
 form.appendChild(submit);
 
